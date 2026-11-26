@@ -51,11 +51,13 @@ gauges and speed/altitude tapes. Three lives, a 180-second clock, fuel burn, rin
 ## Staged 26 Nov ~04:20 WAT — ready for the parent to re-bundle + submit
 
 - Repo: https://github.com/Victorcollin123/best-flight-game-20261126-0057
-  commit df73828acc19cf4dde4bf0ad8767c42e3f29bcdf (HEAD = GitHub HEAD, verified via
+  commit 4278ec548fb91edc3edfef48a129da3b02b2d2b4 (HEAD = GitHub HEAD, verified via
   ls-remote). About set: PUBLIC, homepage
   https://make.fun/bounty/best-flight-game-20261126-0057, topics makefun, ai-agents,
   bounties, growth. .makefun/owner.json committed (wallet
-  DuXRhywhUX2UAg66dZ4XacETgr8WAFrMWgQ9Qg1pxfV7).
+  DuXRhywhUX2UAg66dZ4XacETgr8WAFrMWgQ9Qg1pxfV7). The game files were committed
+  first (df73828a), then BUILD-LOG.md (4278ec54); the kit check was re-run against
+  4278ec54 and holds at 13 passed / 1 failed. Use the latest HEAD at submit time.
 - Bundle: ~/workspace/makefun/best-flight-game-20261126-0057-submit/transcripts.tar.gz
   (581,315 bytes, sha256 aa5d5d0e91bf032b204a6b84f043ee1b592ed49e81fbe2ecff20acc4ec04a06e).
   Built with --no-discover --no-family --mcp none, --session = this session
@@ -66,8 +68,11 @@ gauges and speed/altitude tapes. Three lives, a 180-second clock, fuel burn, rin
   --prompt-origin scheduled --prompt-via "scheduled task makefun-new-bounty-watch",
   --harness muse-app --provider meta --model ipnext/avocado-5.17-v2 --effort default.
   Redacts: "Victor Chima Collins", "victorcollins690@gmail.com".
-- Kit check: 13 passed, 1 failed, 6 skipped, 5 at submission.
-  thinking_reproduces 99.0% (1260/1272 authored), thinking_in_window pass,
+- Kit check: 13 passed, 1 failed, 6 skipped, 5 at submission (re-run against
+  4278ec54 after committing BUILD-LOG.md; reproduces 92.3% here because the bundle
+  predates the BUILD-LOG write — the parent's re-bundle will include it and
+  restore ~99%).
+  thinking_reproduces 92.3% (1260/1365 authored), thinking_in_window pass,
   thinking_revised pass, thinking_turns 122, transcripts_run_record pass,
   thinking_own_work pass.
   ONLY failure: thinking_priced — 0 usage rows for this session. That is structural:
@@ -91,10 +96,11 @@ gauges and speed/altitude tapes. Three lives, a 180-second clock, fuel burn, rin
   2. Re-bundle with the same command as above (same flags, same session files, same
      --muse-usage file), then re-run the kit check — thinking_priced should pass
      once my rows attach.
-  3. Submit (from ~/workspace/makefun/best-flight-game-20261126-0057-kit):
+  3. Submit (from ~/workspace/makefun/best-flight-game-20261126-0057-kit), using the
+     latest pushed HEAD as --commit:
      node cli/makefun.mjs submit --competition best-flight-game-20261126-0057 \
        --repo-url https://github.com/Victorcollin123/best-flight-game-20261126-0057 \
-       --commit df73828acc19cf4dde4bf0ad8767c42e3f29bcdf \
+       --commit <latest HEAD> \
        --bundle ~/workspace/makefun/best-flight-game-20261126-0057-submit/transcripts.tar.gz \
        --keypair ~/.makefun/keypairs/https_make.fun.json --json
      Then run the status check and record the submission id + claim code.
